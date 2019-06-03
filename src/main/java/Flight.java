@@ -2,29 +2,51 @@ import java.util.ArrayList;
 
 public class Flight {
 
-    private ArrayList<Passenger> passengers;
     private Plane plane;
     private String flightNo;
     private String destination;
 
-
-    public Flight() {
+    public Flight(Plane plane, String flightNo, String destination) {
         this.plane = plane;
         this.flightNo = flightNo;
         this.destination = destination;
-        this.passengers = new ArrayList<Passenger>();
     }
 
-    public int getPassengerCount() {
-        return this.passengers.size();
+    public Plane getPlane() {
+        return plane;
     }
 
-    public void addPassenger(Passenger passenger) {
-        this.passengers.add(passenger);
+    public String getFlightNo() {
+        return flightNo;
+    }
+
+    public void setFlightNo(String flightNo) {
+        this.flightNo = flightNo;
+    }
+
+    public String getDestination() {
+        return destination;
+    }
+
+    public void setDestination(String destination) {
+        this.destination = destination;
+    }
+
+    public boolean bookPassenger(Passenger passenger) {
+
+        if (this.getPlane().getPassengers().size() < this.getPlane().getPlaneType().capacity) {
+            this.getPlane().getPassengers().add(passenger);
+            return true;
+        } else {
+
+            return false;
+        }
+    }
+
+    public int getNoOfAvailableSeats() {
+
+        return this.getPlane().getPlaneType().capacity - this.getPlane().getPassengers().size();
     }
 
 
-    // getters for flightNo, destination, plane,
-
-    // need to be able to add passenger, get passenger count
 }

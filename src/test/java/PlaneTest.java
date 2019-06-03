@@ -1,6 +1,8 @@
 import org.junit.Before;
 import org.junit.Test;
 
+import javax.print.DocFlavor;
+
 import static org.junit.Assert.assertEquals;
 
 public class PlaneTest {
@@ -14,4 +16,12 @@ public class PlaneTest {
 
     }
 
+    @Test
+    public void hasType(){
+        assertEquals(PlaneType.HELICOPTER, plane.getPlaneType());
+    }
+    // has type
+
+//    @Test
+    // stars with no passengers
 }
