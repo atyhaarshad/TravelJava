@@ -12,6 +12,8 @@ public class FlightManagerTest {
     Plane plane2 = new Plane(PlaneType.BOEING787);
     Passenger passenger7;
     Passenger passenger8;
+    Passenger passenger9;
+    Passenger passenger10;
 
     @Before
     public void setUp(){
@@ -20,6 +22,8 @@ public class FlightManagerTest {
         passenger7 = new Passenger("Atyha", 5);
         passenger8 = new Passenger("Bob", 0);
         flightManager = new FlightManager(flight);
+        passenger9 = new Passenger("test", 3);
+        passenger10 = new Passenger("test2", 2);
 
     }
 
@@ -37,7 +41,12 @@ public class FlightManagerTest {
 
     @Test // overall weight reserved for remaining baggage for flight
     public void canGetRemainingBaggageLeftForFlight(){
-        assertEquals(0, flightManager.getRemainingBaggageWeight(flight));
+        flight.bookPassenger(passenger7); // 50kg
+        flight.bookPassenger(passenger9); //30kg
+        flight.bookPassenger(passenger10); //20kg
+        // total baggage of passengers = 100kg
+        // baggage capacity for HELI is 2500kg, 2500 - 100 = 2400[assertion]
+        assertEquals(2400, flightManager.getRemainingBaggageWeight(flight));
     }
 
 

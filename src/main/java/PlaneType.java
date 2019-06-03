@@ -4,7 +4,7 @@ public enum PlaneType {
     PRIVATEJET(15, 20000),
     BOEING787(415, 40000);
 
-    public final int capacity;
+    public final int capacity; // make these private instead of public [encapsulation]
     public final int weight;
 
     PlaneType(int capacity, int weight) {

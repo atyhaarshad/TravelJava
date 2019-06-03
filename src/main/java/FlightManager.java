@@ -19,8 +19,13 @@ public class FlightManager {
     }
 
     public int getRemainingBaggageWeight(Flight flight) {
-        ArrayList remainingBaggage = flight.getPlane().getPassengers();
-        remainingBaggage.forEach();
+        int allBaggage = 0;
+        ArrayList<Passenger> remainingBaggage = flight.getPlane().getPassengers();
+        for (Passenger passenger : remainingBaggage){
+            allBaggage += getPassengersBaggageWeight(passenger);
+        }
+        int flightBaggageWeight = flight.getPlane().getPlaneType().weight / 2;
+        return flightBaggageWeight - allBaggage;
 
     }
 }

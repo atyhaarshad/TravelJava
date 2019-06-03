@@ -65,5 +65,10 @@ public class FlightTest {
         assertEquals(false, flight.bookPassenger(passenger1));
     }
 
+    @Test // testing remaining baggage for a flight when some passengers have been added
+    public void canGetRemainingBaggageForFlight(){
+
+    }
+
 
 }
